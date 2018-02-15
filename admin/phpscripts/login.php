@@ -14,10 +14,9 @@
 			$_SESSION['users_name'] = $found_user['users_fname'];
 			if(mysqli_query($link, $loginstring)) {
 				$updatestring = "UPDATE tbl_users SET users_ip = '$ip' WHERE users_id={$id}";
-				$updatequery = mysqli_query($link, $updatestring);
-			
+                $updatequery = mysqli_query($link, $updatestring);
 
-			redirect_to("admin_index.php");
+            redirect_to("admin_index.php"); 
 		}else{
 			$message = "username or password is incorrect.";
 			return $message;
