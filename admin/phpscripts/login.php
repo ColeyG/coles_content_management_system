@@ -15,10 +15,11 @@
 			if(mysqli_query($link, $loginstring)) {
 				$updatestring = "UPDATE tbl_users SET users_ip = '$ip' WHERE users_id={$id}";
                 $updatequery = mysqli_query($link, $updatestring);
+                $_SESSION['loginAttempts']=$_SESSION['loginAttempts']+1;
 
             redirect_to("admin_index.php"); 
 		}else{
-			$message = "username or password is incorrect.";
+            $message = "username or password is incorrect.";
 			return $message;
 		}
 			echo $id;

@@ -12,6 +12,10 @@ require_once('phpscripts/connect.php');
     $date=date("d-m-y")." at ".date("h:i:sa");
     $updatestring = "UPDATE tbl_users SET users_lastlog = '$date' WHERE users_id={$_SESSION['users_id']}";
     $updatequery = mysqli_query($link, $updatestring);
+    $dayHour=date('G');
+    if($dayHour>0){$dayMessage="Good morning ";}
+    if($dayHour>12){$dayMessage="Good afternoon ";}
+    if($dayHour>18){$dayMessage="Good evening ";}
 
     mysqli_close($link);
 
@@ -27,7 +31,9 @@ require_once('phpscripts/connect.php');
 <body>
     <h1>Hey</h1>
     <?php
-        echo "Last login was: ".$lastDateTime;
+        echo "Last login was: ".$lastDateTime."<br>";
+        // echo date('G');
+        echo $dayMessage."{$_SESSION['users_name']}";
     ?>
 </body>
 </html>

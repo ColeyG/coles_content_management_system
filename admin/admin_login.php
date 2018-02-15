@@ -5,12 +5,13 @@
     require_once('phpscripts/config.php');
     $message = "";
 
-	$ip = $_SERVER['REMOTE_ADDR'];//server call for remote address
-	//echo $ip;
+    if(!isset($_SESSION['loginAttempts'])){$_SESSION['loginAttempts']=0;}
+
+	$ip = $_SERVER['REMOTE_ADDR'];
 	if(isset($_POST['submit'])) {
-		$username = trim($_POST['username']); //trim checks whitespace front and back
+		$username = trim($_POST['username']);
 		$password = trim($_POST['password']);
-		if($username !== "" && $password !== "") { //if username and pass if filled out
+		if($username !== "" && $password !== "") {
 			$result = logIn($username, $password, $ip);
 			$message = $result;
 		}else{
@@ -35,6 +36,10 @@
     </header>
     <div class="container-flud flexIn">
         <div id="mainLogin" class="container beige flexInDown">
+            <?php
+            if($_SESSION['loginAttempts']>=3){
+                echo "<p class='danger'>TOO MANY FAILED ATTEMPTS AT LOGIN. PLEASE WAIT</p>";
+            }else{echo '
             <form action="admin_login.php" method="post">
             <p>Username:</p>
             <input type="text" name="username" value="" class="input-group">
@@ -43,8 +48,8 @@
             <input type="text" name="password" value="" class="input-group">
             <br>
             <input type="submit" name="submit" value="Login" class="btn btn-info m-1">
-            </form>
-            <?php echo "<p class='danger'>".$message."</p>"; ?>
+            </form>';}
+            echo "<p class='danger'>".$message."</p>"; ?>
         </div>
     </div>
 </body>
