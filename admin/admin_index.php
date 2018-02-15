@@ -27,13 +27,21 @@ require_once('phpscripts/connect.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin Dashboard</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="css/main.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Hey</h1>
-    <?php
-        echo "Last login was: ".$lastDateTime."<br>";
-        // echo date('G');
-        echo $dayMessage."{$_SESSION['users_name']}";
-    ?>
+    <header id="mainHeader" class="container-fluid flexIn green">
+        <h2>Cole's CMS</h2>
+    </header>
+    <div class="container">
+        <div id="cmsContainer" class="beige flexInDown">
+        <?php
+            echo "<p>Last login was: ".$lastDateTime."</p>";
+            // echo date('G');
+            echo "<p>".$dayMessage."{$_SESSION['users_name']}"."</p>";
+        ?>
+        </div>
+    </div>
 </body>
 </html>
