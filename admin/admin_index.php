@@ -37,6 +37,7 @@ require_once('phpscripts/connect.php');
     <div class="container">
         <div id="cmsContainer" class="beige flexInDown">
         <?php
+            if($lastDateTime==""){$lastDateTime="Never!";}
             echo "<p>Last login was: ".$lastDateTime."</p>";
             // echo date('G');
             echo "<p>".$dayMessage."{$_SESSION['users_name']}"."</p>";
