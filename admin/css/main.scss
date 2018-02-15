@@ -26,10 +26,19 @@ body{
     align-items: center;
     flex-direction: row;
 }
+.flexInDown{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 h2{
     color:white;
 }
 #mainLogin{
     margin:20px;
     border-radius:25px;
+}
+.danger{
+    color:red;
 }
