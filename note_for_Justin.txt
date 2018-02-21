@@ -1,2 +1,3 @@
 Resources:
 http://php.net/manual/en/function.password-verify.php
+https://stackoverflow.com/questions/6101956/generating-a-random-password-in-php (changed to add length functionality and reusability)

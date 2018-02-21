@@ -10,6 +10,7 @@
         echo $userString;
         $userQuery = mysqli_query($link,$userString);
         if($userQuery){
+            /* THE FOLLOWING CODE IS THE MAILER. This will not work on a non-live site, but does succesfully mail. Tested it! :) (it calls the mailer.php function.)*/
             mailer($email,'Account Verification',"Account Verification for Cole's CMS.com, Here are your credentials:<br> Username: ".$username." Password: ".$password." Register at: colescms.com");
             redirect_to('admin_index.php');
         }else{

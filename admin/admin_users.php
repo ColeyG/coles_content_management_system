@@ -3,7 +3,7 @@
     confirm_logged_in();
     if(isset($_POST['submit'])){
         $username = trim($_POST['username']);
-        $password = trim($_POST['password']);
+        $password = randPass(8);
         $email = trim($_POST['email']);
         $userlvl = $_POST['userlvl'];
         $fname = trim($_POST['firstname']);
@@ -42,8 +42,6 @@
             <input  type="text" name="firstname" value="<?php if(!empty($message)){echo $fname;}?>">
             <label>Username:</label>
             <input  type="text" name="username" value="<?php if(!empty($message)){echo $username;}?>">
-            <label>Password:</label>
-            <input  type="text" name="password" value="<?php if(!empty($message)){echo $password;}?>">
             <label>Email:</label>
             <input  type="text" name="email" value="<?php if(!empty($message)){echo $email;}?>">
             <label>User Level:</label>
