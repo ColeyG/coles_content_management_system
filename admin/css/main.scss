@@ -20,9 +20,12 @@ body{
     height:10vh;
     border-bottom:inset 10px $mainBlue;
 }
+#mainHeader div{
+    width:10%;
+}
 .flexIn{
     display:flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     flex-direction: row;
 }
@@ -45,4 +48,7 @@ h2{
 #cmsContainer{
     margin:20px;
     border-radius:25px;
+}
+.centerText{
+    text-align: center;
 }

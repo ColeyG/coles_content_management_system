@@ -3,6 +3,7 @@ require_once('phpscripts/config.php');
 confirm_logged_in();
 require_once('phpscripts/connect.php');
 
+    // date_default_timezone_set('America/New_York');
     // $id = $found_user['users_id'];
     $lastDateString = "SELECT * FROM tbl_users WHERE users_id={$_SESSION['users_id']}";
     $lastDate=mysqli_query($link, $lastDateString);
@@ -13,11 +14,17 @@ require_once('phpscripts/connect.php');
     $updatestring = "UPDATE tbl_users SET users_lastlog = '$date' WHERE users_id={$_SESSION['users_id']}";
     $updatequery = mysqli_query($link, $updatestring);
     $dayHour=date('G');
-    if($dayHour>0){$dayMessage="Good morning ";}
-    if($dayHour>12){$dayMessage="Good afternoon ";}
-    if($dayHour>18){$dayMessage="Good evening ";}
+    // if($dayHour>0){$dayMessage="Good morning ";}
+    // if($dayHour>12){$dayMessage="Good afternoon ";}
+    // if($dayHour>18){$dayMessage="Good evening ";}
 
     mysqli_close($link);
+    // echo localtime()[2];
+    /*
+    Struggling to find out how to properly get a user's time... Just to find out that MAMP defaults its servers
+    to UTC. This should work if the server was to go live and if not I can set the user's timezone above.
+    Without JS finding this offset automatically is impossible.
+    */
 
 ?>
 <!DOCTYPE html>
@@ -32,7 +39,12 @@ require_once('phpscripts/connect.php');
 </head>
 <body>
     <header id="mainHeader" class="container-fluid flexIn green">
+        <div><h6 class="centerText">admin controls</h6></div>
         <h2>Cole's CMS</h2>
+        <div class="flexInDown">
+           <h6 class="centerText"><?php echo "{$_SESSION['users_name']}"?></h6> 
+           <a href="phpscripts/caller.php?caller_id=logout">Logout</a>
+        </div>
     </header>
     <div class="container">
         <div id="cmsContainer" class="beige flexInDown">
@@ -42,6 +54,7 @@ require_once('phpscripts/connect.php');
             // echo date('G');
             echo "<p>".$dayMessage."{$_SESSION['users_name']}"."</p>";
         ?>
+        <a type="button" class="btn btn-primary m-1" class="but" href="admin_users.php">Create and Edit Users</a>
         </div>
     </div>
 </body>

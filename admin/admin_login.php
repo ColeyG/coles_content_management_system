@@ -37,7 +37,7 @@
     <div class="container-flud flexIn">
         <div id="mainLogin" class="container beige flexInDown">
             <?php
-            if($_SESSION['loginAttempts']>=3){
+            if($_SESSION['loginAttempts']>=5){
                 echo "<p class='danger'>TOO MANY FAILED ATTEMPTS AT LOGIN. PLEASE WAIT</p>";
             }else{echo '
             <form action="admin_login.php" method="post">

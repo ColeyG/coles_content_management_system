@@ -2,7 +2,7 @@
 	$user = "root";
 	$pass = "root";
 	$url = "localhost";
-    $db = "db_login";
+    $db = "db_adminCms";
     $port = 3306;
 	
 	$link = mysqli_connect($url, $user, $pass, $db, $port);
