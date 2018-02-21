@@ -10,6 +10,7 @@
         echo $userString;
         $userQuery = mysqli_query($link,$userString);
         if($userQuery){
+            mailer($email,'Account Verification',"Account Verification for Cole's CMS.com, Here are your credentials:<br> Username: ".$username." Password: ".$password." Register at: colescms.com");
             redirect_to('admin_index.php');
         }else{
             $message = "There was a problem setting up this user.";
