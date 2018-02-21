@@ -5,8 +5,9 @@
             $message = "Fill out all fields!";
             return $message;
         }
-        $userString = "INSERT INTO tbl_users VALUES (NULL,'{$username}','{$password}','{$email}',NULL,NULL,'{$userlvl}','{$fname}')";
-        // echo $userString;
+        $enPass = password_hash($password, PASSWORD_DEFAULT);
+        $userString = "INSERT INTO tbl_users VALUES (NULL,'{$username}','$enPass','{$email}',NULL,NULL,'{$userlvl}','{$fname}')";
+        echo $userString;
         $userQuery = mysqli_query($link,$userString);
         if($userQuery){
             redirect_to('admin_index.php');
