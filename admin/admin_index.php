@@ -34,7 +34,7 @@ require_once('phpscripts/connect.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Admin Dashboard</title>
+    <title>Settings Dashboard</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="css/main.css" rel="stylesheet">
 </head>
@@ -55,7 +55,8 @@ require_once('phpscripts/connect.php');
             // echo date('G');
             echo "<p>".$dayMessage."{$_SESSION['users_name']}"."</p>";
         ?>
-        <a type="button" class="btn btn-primary m-1" class="but" href="admin_users.php">Create and Edit Users</a>
+        <a type="button" class="btn btn-primary m-1" class="but" href="admin_users.php">Create Users</a>
+        <a type="button" class="btn btn-primary m-1" class="but" href="admin_edituser.php">Edit Account</a>
         </div>
     </div>
 </body>

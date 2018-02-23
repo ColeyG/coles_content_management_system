@@ -19,7 +19,7 @@
 			if(mysqli_query($link, $loginstring)) {
 				$updatestring = "UPDATE tbl_users SET users_ip = '$ip' WHERE users_id={$id}";
                 $updatequery = mysqli_query($link, $updatestring);
-                $_SESSION['loginAttempts']=$_SESSION['loginAttempts']+0;/* FIX BEFORE SUBMISSION */
+                $_SESSION['loginAttempts']=$_SESSION['loginAttempts']+1;
 
 			redirect_to("admin_index.php"); 
 			}
@@ -27,22 +27,6 @@
 			$message = "username or password is incorrect.";
 			return $message;
 		}
-			// $found_user = mysqli_fetch_array($user_set, MYSQLI_ASSOC);
-			// $id = $found_user['users_id'];
-			// $_SESSION['users_id'] = $id;
-			// $_SESSION['users_name'] = $found_user['users_fname'];
-		// 	if(mysqli_query($link, $loginstring)) {
-		// 		$updatestring = "UPDATE tbl_users SET users_ip = '$ip' WHERE users_id={$id}";
-        //         $updatequery = mysqli_query($link, $updatestring);
-        //         $_SESSION['loginAttempts']=$_SESSION['loginAttempts']+0;/* FIX BEFORE SUBMISSION */
-
-        //     redirect_to("admin_index.php"); 
-		// }else{
-        //     $message = "username or password is incorrect.";
-		// 	return $message;
-		// }
-		// 	echo $id;
-
 
 		mysqli_close($link);
 	}

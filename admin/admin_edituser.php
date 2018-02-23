@@ -1,19 +1,9 @@
 <?php
 	require_once('phpscripts/config.php');
     confirm_logged_in();
-    if(isset($_POST['submit'])){
-        $username = trim($_POST['username']);
-        $password = randPass(8);
-        $email = trim($_POST['email']);
-        $userlvl = $_POST['userlvl'];
-        $fname = trim($_POST['firstname']);
-        if(empty($userlvl)){
-            $message = "Please select a user level.";
-        }else{
-            $result = createUser($username,$password,$email,$userlvl,$fname);
-            $message = $result;
-        }
-    }
+    $getUser = getSingle('tbl_users','users_id',$_SESSION['users_id']);
+    $foundUser=mysqli_fetch_array($getUser,MYSQLI_ASSOC);
+    echo $foundUser['users_fname'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +17,7 @@
 </head>
 <body>
     <header id="mainHeader" class="container-fluid flexIn green">
-        <div><h6 class="centerText">user controls</h6></div>
+        <div><h6 class="centerText">editing account</h6></div>
         <h2>Cole's CMS</h2>
         <div class="flexInDown">
            <h6 class="centerText"><?php echo "{$_SESSION['users_name']}"?></h6> 
@@ -39,18 +29,16 @@
             <?php if(!empty($message)){echo "<p class='danger'>".$message."</p>";}?>
             <form action="admin_users.php" method="post" class="flexInDown">
             <label>First Name:</label>
-            <input  type="text" name="firstname" value="<?php if(!empty($message)){echo $fname;}?>">
+            <input  type="text" name="firstname" value="<?php ?>">
             <label>Username:</label>
-            <input  type="text" name="username" value="<?php if(!empty($message)){echo $username;}?>">
+            <input  type="text" name="username" value="<?php ?>">
             <label>Email:</label>
-            <input  type="text" name="email" value="<?php if(!empty($message)){echo $email;}?>">
-            <label>User Level:</label>
-            <select name="userlvl">
-                <option value="">Please Select a User Level</option>
-                <option value="2">Web Admin</option>
-                <option value="1">Web Master</option>
-            </select>
-                <input class="btn btn-primary m-1" type="submit" name="submit" value="Create User">
+            <input  type="text" name="email" value="<?php ?>">
+            <label>Old Password:</label>
+            <input  type="text" name="password" value="<?php ?>">
+            <label>New Password:</label>
+            <input  type="text" name="newPassword" value="<?php ?>">
+                <input class="btn btn-primary m-1" type="submit" name="submit" value="Edit Account">
             </form>
         </div> 
     </div>
