@@ -24,7 +24,7 @@
 
     function editUser($id,$editPassCheck,$username,$email,$fname,$newPass){
         include('connect.php');
-        $enPass = password_hash($newPass);
+        $enPass = password_hash($newPass,PASSWORD_DEFAULT);
         if ($editPassCheck==true){
         $userString = "UPDATE tbl_users SET users_fname='{$fname}', users_name='{$username}', users_email='{$email}', users_pass='$enPass' WHERE users_id={$id}";
         }else{
@@ -32,6 +32,7 @@
         }
         $userUpdateQuery = mysqli_query($link,$userString);
         if($userUpdateQuery){
+            $_SESSION['users_name'] = $fname;
             redirect_to('admin_index.php');
         }else{
             $message = "There was a problem editing this account.";
