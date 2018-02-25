@@ -3,7 +3,8 @@
     confirm_logged_in();
     if(isset($_POST['submit'])){
         $username = trim($_POST['username']);
-        $password = randPass(8);
+        // $password = randPass(8);
+        $password = "Pass";// FOR TESTING, ALL PASSWORDS ARE "RANDOMLY GENERATED" TO 'Pass'
         $email = trim($_POST['email']);
         $userlvl = $_POST['userlvl'];
         $fname = trim($_POST['firstname']);

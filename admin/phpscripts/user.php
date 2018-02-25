@@ -13,7 +13,7 @@
                 return $message;
             }
             $enPass = password_hash($password, PASSWORD_DEFAULT);
-            $userString = "INSERT INTO tbl_users VALUES (NULL,'{$username}','$enPass','{$email}',NULL,NULL,'{$userlvl}','{$fname}')";
+            $userString = "INSERT INTO tbl_users VALUES (NULL,'{$username}','$enPass','{$email}',NULL,NULL,'{$userlvl}','{$fname}',FALSE)";
             //echo $userString;
             $userQuery = mysqli_query($link,$userString);
             if($userQuery){
@@ -34,9 +34,9 @@
         include('connect.php');
         $enPass = password_hash($newPass,PASSWORD_DEFAULT);
         if ($editPassCheck==true){
-        $userString = "UPDATE tbl_users SET users_fname='{$fname}', users_name='{$username}', users_email='{$email}', users_pass='$enPass' WHERE users_id={$id}";
+        $userString = "UPDATE tbl_users SET users_fname='{$fname}', users_name='{$username}', users_email='{$email}', users_pass='$enPass', users_firstlog=TRUE WHERE users_id={$id}";
         }else{
-            $userString = "UPDATE tbl_users SET users_fname='{$fname}', users_name='{$username}', users_email='{$email}' WHERE users_id={$id}";
+            $userString = "UPDATE tbl_users SET users_fname='{$fname}', users_name='{$username}', users_email='{$email}', users_firstlog=TRUE WHERE users_id={$id}";
         }
         $userUpdateQuery = mysqli_query($link,$userString);
         if($userUpdateQuery){

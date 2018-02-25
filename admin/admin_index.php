@@ -19,6 +19,11 @@ require_once('phpscripts/connect.php');
     // if($dayHour>18){$dayMessage="Good evening ";}
     $_SESSION['loginAttempts']=0;
 
+    if($dateArray['users_firstlog']==false){
+        redirect_to("admin_edituser.php");
+    }
+    
+
     mysqli_close($link);
     // echo localtime()[2];
     /*
