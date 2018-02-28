@@ -1,5 +1,22 @@
 <?php
 
+	function checkSuspension($ifNeedsChecking,$creationDate,$id){
+		if($ifNeedsChecking==TRUE){
+			if($creationDate+259200<date('U')){
+				$result = FALSE;
+			}else{
+				$result = TRUE;
+				$suspensionCheck= "UPDATE tbl_users SET users_suspensionCheck = FALSE WHERE users_id={$id} ";
+				$suspensionQuery = myslqi_query($link,$suspensionCheck);
+				//echo $suspensionCheck;
+			}
+		}else{
+			$result = TRUE;
+		}
+		//echo $result;
+		return $result;
+	}
+
 	function Login($username, $password, $ip) {
 		require_once('connect.php');
 		$username = mysqli_real_escape_string($link, $username);
@@ -13,9 +30,18 @@
 		$id = $found_user['users_id'];
 		$fname = $found_user['users_fname'];
 		if(password_verify($password,$found_user['users_pass'])){
+
+			$suspension = checkSuspension($found_user['users_suspensionCheck'],$found_user['users_accountCreationDate'],$id);
+
+			if($suspension==TRUE){
+				$_SESSION['users_id'] = $id;
+				$_SESSION['users_name'] = $found_user['users_fname'];
+			}else{
+				$message = "This account is suspended. This is likely as a result of creating an account then waiting too long to verify. Please contact support.";
+				return $message;
+			}
 			
-			$_SESSION['users_id'] = $id;
-			$_SESSION['users_name'] = $found_user['users_fname'];
+			
 			if(mysqli_query($link, $loginstring)) {
 				$updatestring = "UPDATE tbl_users SET users_ip = '$ip' WHERE users_id={$id}";
                 $updatequery = mysqli_query($link, $updatestring);

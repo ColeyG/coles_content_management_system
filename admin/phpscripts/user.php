@@ -13,7 +13,8 @@
                 return $message;
             }
             $enPass = password_hash($password, PASSWORD_DEFAULT);
-            $userString = "INSERT INTO tbl_users VALUES (NULL,'{$username}','$enPass','{$email}',NULL,NULL,'{$userlvl}','{$fname}',FALSE)";
+            $creationDate = date('U');//using unix epoch time for easy calculations
+            $userString = "INSERT INTO tbl_users VALUES (NULL,'{$username}','$enPass','{$email}',NULL,NULL,'{$userlvl}','{$fname}',FALSE,'$creationDate',TRUE)";
             //echo $userString;
             $userQuery = mysqli_query($link,$userString);
             if($userQuery){
