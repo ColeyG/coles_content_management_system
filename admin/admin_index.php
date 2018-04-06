@@ -16,9 +16,6 @@ require_once('phpscripts/connect.php');
     $updatestring = "UPDATE tbl_users SET users_lastlog = '$date' WHERE users_id={$_SESSION['users_id']}";
     $updatequery = mysqli_query($link, $updatestring);
     $dayHour=date('G');
-    // if($dayHour>0){$dayMessage="Good morning ";}
-    // if($dayHour>12){$dayMessage="Good afternoon ";}
-    // if($dayHour>18){$dayMessage="Good evening ";}
     $_SESSION['loginAttempts']=0;
 
     if($dateArray['users_firstlog']==false){
@@ -28,11 +25,6 @@ require_once('phpscripts/connect.php');
 
     mysqli_close($link);
     // echo localtime()[2];
-    /*
-    Struggling to find out how to properly get a user's time... Just to find out that MAMP defaults its servers
-    to UTC. This should work if the server was to go live and if not I can set the user's timezone above.
-    Without JS finding this offset automatically is functionally impossible.
-    */
 
 ?>
 <!DOCTYPE html>

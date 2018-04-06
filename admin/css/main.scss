@@ -34,6 +34,9 @@ body{
 .blue{
     background-color: $mainBlue;
 }
+.white{
+    color:white;
+}
 #mainHeader{
     height:10vh;
     border-bottom:inset 10px $mainBlue;
@@ -73,4 +76,7 @@ h2{
 .mainButtonsCon{
     border-radius:5px;
     padding:10px;
+}
+.postSec{
+    display: none;
 }
