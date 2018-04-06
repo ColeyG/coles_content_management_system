@@ -1,6 +1,9 @@
 <?php
 	require_once('phpscripts/config.php');
     confirm_logged_in();
+
+    $title = "Edit Users";
+
     $getUser = getSingle('tbl_users','users_id',$_SESSION['users_id']);
     $foundUser=mysqli_fetch_array($getUser,MYSQLI_ASSOC);
     if(isset($_POST['submit'])){
@@ -34,19 +37,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Settings Dashboard</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="css/bootswatch.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
+    <?php include('includes/styles.php');?>
 </head>
 <body>
-    <header id="mainHeader" class="container-fluid flexIn green">
-        <div><h6 class="centerText">editing account</h6></div>
-        <h2>Cole's CMS</h2>
-        <div class="flexInDown">
-           <h6 class="centerText"><?php echo "{$_SESSION['users_name']}"?></h6> 
-           <a href="phpscripts/caller.php?caller_id=logout">Logout</a>
-        </div>
-    </header>
+    <?php include('includes/header.php');?>
     <div class="container">
         <div id="cmsContainer" class="flexInDown">
             <div class="flexInDown blue mainButtonsCon">

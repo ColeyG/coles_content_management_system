@@ -1,6 +1,8 @@
 <?php
 	ini_set('display_errors',1);
-	error_reporting(E_ALL);
+    error_reporting(E_ALL);
+    
+    $title = "Login";
 
     require_once('phpscripts/config.php');
     $message = "";
@@ -27,9 +29,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Settings Dashboard</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="css/bootswatch.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
+    <?php include('includes/styles.php');?>
 </head>
 <body>
     <header id="mainHeader" class="container-fluid flexIn green">

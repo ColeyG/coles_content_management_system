@@ -3,6 +3,8 @@ require_once('phpscripts/config.php');
 confirm_logged_in();
 require_once('phpscripts/connect.php');
 
+    $title = "Home";
+
     // date_default_timezone_set('America/New_York');
     // $id = $found_user['users_id'];
     $lastDateString = "SELECT * FROM tbl_users WHERE users_id={$_SESSION['users_id']}";
@@ -40,19 +42,10 @@ require_once('phpscripts/connect.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Settings Dashboard</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="css/bootswatch.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
+    <?php include('includes/styles.php');?>
 </head>
 <body>
-    <header id="mainHeader" class="container-fluid flexIn green">
-        <div><h6 class="centerText">admin controls</h6></div>
-        <h2>Cole's CMS</h2>
-        <div class="flexInDown">
-           <h6 class="centerText"><?php echo "{$_SESSION['users_name']}"?></h6> 
-           <a href="phpscripts/caller.php?caller_id=logout">Logout</a>
-        </div>
-    </header>
+    <?php include('includes/header.php');?>
     <div class="container">
         <div id="cmsContainer" class="flexInDown">
         <?php
@@ -64,7 +57,7 @@ require_once('phpscripts/connect.php');
         <div class="flexInDown blue mainButtonsCon">
             <a class="btn btn-primary m-2" class="but" href="admin_users.php">Create Users</a>
             <a class="btn btn-primary m-2" class="but" href="admin_edituser.php">Edit Account</a>
-            <a class="btn btn-primary m-2" class="but" href="admin_edituser.php">Create a Post</a>
+            <a class="btn btn-primary m-2" class="but" href="admin_createapost.php">Create a Post</a>
         </div>
         </div>
     </div>
