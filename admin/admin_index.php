@@ -41,6 +41,7 @@ require_once('phpscripts/connect.php');
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Settings Dashboard</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="css/bootswatch.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
 </head>
 <body>
@@ -53,15 +54,18 @@ require_once('phpscripts/connect.php');
         </div>
     </header>
     <div class="container">
-        <div id="cmsContainer" class="beige flexInDown">
+        <div id="cmsContainer" class="flexInDown">
         <?php
             if($lastDateTime==""){$lastDateTime="Never!";}
-            echo "<p>Last login was: ".$lastDateTime."</p>";
+            //echo "<p>Last login was: ".$lastDateTime."</p>";
             // echo date('G');
-            echo "<p>".$dayMessage."{$_SESSION['users_name']}"."</p>";
+            //echo "<p>".$dayMessage."User: "."{$_SESSION['users_name']}"."</p>";
         ?>
-        <a type="button" class="btn btn-primary m-1" class="but" href="admin_users.php">Create Users</a>
-        <a type="button" class="btn btn-primary m-1" class="but" href="admin_edituser.php">Edit Account</a>
+        <div class="flexInDown blue mainButtonsCon">
+            <a class="btn btn-primary m-2" class="but" href="admin_users.php">Create Users</a>
+            <a class="btn btn-primary m-2" class="but" href="admin_edituser.php">Edit Account</a>
+            <a class="btn btn-primary m-2" class="but" href="admin_edituser.php">Create a Post</a>
+        </div>
         </div>
     </div>
 </body>

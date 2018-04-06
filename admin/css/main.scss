@@ -7,6 +7,9 @@ $lightestBeige:#ECE4B7;
 p{
     margin:5;
 }
+.btn{
+    border-bottom-width: 3px;
+}
 body{
     background-color: $lightestBeige;
 }
@@ -15,6 +18,9 @@ body{
 }
 .beige{
     background-color: $mainBeige;
+}
+.blue{
+    background-color: $mainBlue;
 }
 #mainHeader{
     height:10vh;
@@ -51,4 +57,8 @@ h2{
 }
 .centerText{
     text-align: center;
+}
+.mainButtonsCon{
+    border-radius:5px;
+    padding:10px;
 }

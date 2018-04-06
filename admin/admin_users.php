@@ -24,6 +24,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Settings Dashboard</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="css/bootswatch.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
 </head>
 <body>
@@ -36,23 +37,25 @@
         </div>
     </header>
     <div class="container">
-        <div id="cmsContainer" class="beige flexInDown">
-            <?php if(!empty($message)){echo "<p class='danger'>".$message."</p>";}?>
-            <form action="admin_users.php" method="post" class="flexInDown">
-            <label>First Name:</label>
-            <input  type="text" name="firstname" value="<?php if(!empty($message)){echo $fname;}?>">
-            <label>Username:</label>
-            <input  type="text" name="username" value="<?php if(!empty($message)){echo $username;}?>">
-            <label>Email:</label>
-            <input  type="text" name="email" value="<?php if(!empty($message)){echo $email;}?>">
-            <label>User Level:</label>
-            <select name="userlvl">
-                <option value="">Please Select a User Level</option>
-                <option value="2">Web Admin</option>
-                <option value="1">Web Master</option>
-            </select>
-                <input class="btn btn-primary m-1" type="submit" name="submit" value="Create User">
-            </form>
+        <div id="cmsContainer" class="flexInDown">
+        <div class="flexInDown blue mainButtonsCon">
+                <?php if(!empty($message)){echo "<p class='danger'>".$message."</p>";}?>
+                <form action="admin_users.php" method="post" class="flexInDown">
+                <label>First Name:</label>
+                <input  type="text" name="firstname" value="<?php if(!empty($message)){echo $fname;}?>">
+                <label>Username:</label>
+                <input  type="text" name="username" value="<?php if(!empty($message)){echo $username;}?>">
+                <label>Email:</label>
+                <input  type="text" name="email" value="<?php if(!empty($message)){echo $email;}?>">
+                <label>User Level:</label>
+                <select name="userlvl">
+                    <option value="">Please Select a User Level</option>
+                    <option value="2">Web Admin</option>
+                    <option value="1">Web Master</option>
+                </select>
+                    <input class="btn btn-primary m-1" type="submit" name="submit" value="Create User">
+                </form>
+            </div>
         </div> 
     </div>
 </body>
