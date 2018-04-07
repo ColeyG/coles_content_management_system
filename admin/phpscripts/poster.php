@@ -35,7 +35,7 @@
         
         parse_str( parse_url( $youtubeId, PHP_URL_QUERY ), $my_array_of_vars );
         $id = $my_array_of_vars['v'];
-        $cover="https://img.youtube.com/vi/".$id."/maxresdefault.jpg";
+        $cover=$id;
 
         $postString = "INSERT INTO tbl_content VALUES(NULL,'{$titleP}','{$slug}','{$cover}','{$desc}','Video','{$id}','{$_SESSION['users_name']}','{$time}')";
 
