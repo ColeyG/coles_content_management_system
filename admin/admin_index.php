@@ -33,7 +33,7 @@ require_once('phpscripts/connect.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Settings Dashboard</title>
+    <title><?php echo $title?></title>
     <?php include('includes/styles.php');?>
 </head>
 <body>
