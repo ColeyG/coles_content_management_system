@@ -49,11 +49,11 @@ confirm_logged_in();
                     <input  type="text" name="title" value="">
                     <label>Subtitle/Slugline:</label>
                     <input  type="text" name="slug" value="">
-                    <label>Video:</label>
+                    <label>Youtube Link:</label>
                     <input  type="text" name="video" value="">
                     <label>Description:</label>
                     <input  type="text" name="desc" value="">
-                    <input class="btn btn-primary m-1" type="submit" name="submitVideo" value="Post Image">
+                    <input class="btn btn-primary m-1" type="submit" name="submitVideo" value="Post Video">
                 </form>
             </div>
             <div class="flexIn blue mainButtonsCon m-1 postSec" id="imageSec">
@@ -74,7 +74,6 @@ confirm_logged_in();
             </div>
         </div>
     </div>
-    <img src="https://img.youtube.com/vi/lNSsmc_6GOQ/0.jpg" alt="">
     <script src="js/main.js"></script>
 </body>
 </html>

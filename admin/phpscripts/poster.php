@@ -31,11 +31,21 @@
 
     function submitVideo($titleP,$slug,$youtubeId,$desc){
         include('connect.php');
+        $time=date('d-m-y').' at: '.date('h:i');
         
         parse_str( parse_url( $youtubeId, PHP_URL_QUERY ), $my_array_of_vars );
         $id = $my_array_of_vars['v'];
+        $cover="https://img.youtube.com/vi/".$id."/maxresdefault.jpg";
 
-        echo $id;
+        $postString = "INSERT INTO tbl_content VALUES(NULL,'{$titleP}','{$slug}','{$cover}','{$desc}','Video','{$id}','{$_SESSION['users_name']}','{$time}')";
+
+        //echo $postString;
+        $postQuery = mysqli_query($link,$postString);
+        if($postQuery){
+            //echo "It worked!";
+        }else{
+            //echo "Is not working!";
+        }
         mysqli_close($link);
     }
 
