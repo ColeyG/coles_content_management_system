@@ -35,7 +35,7 @@
 
 			if($suspension==TRUE){
 				$_SESSION['users_id'] = $id;
-				$_SESSION['users_name'] = $found_user['users_uname'];
+				$_SESSION['users_name'] = $found_user['users_name'];
 			}else{
 				$message = "This account is suspended. This is likely as a result of creating an account then waiting too long to verify. Please contact support.";
 				return $message;

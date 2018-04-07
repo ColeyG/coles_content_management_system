@@ -29,5 +29,15 @@
         mysqli_close($link);
     }
 
+    function submitVideo($titleP,$slug,$youtubeId,$desc){
+        include('connect.php');
+        
+        parse_str( parse_url( $youtubeId, PHP_URL_QUERY ), $my_array_of_vars );
+        $id = $my_array_of_vars['v'];
+
+        echo $id;
+        mysqli_close($link);
+    }
+
 
 ?>

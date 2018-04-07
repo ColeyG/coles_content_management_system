@@ -14,6 +14,14 @@ confirm_logged_in();
         submitImage($titleP,$slug,$desc,$image);
     }
 
+    if(isset($_POST['submitVideo'])){
+        $titleP = trim($_POST['title']);
+        $slug = trim($_POST['slug']);
+        $desc = trim($_POST['desc']);
+        $youtubeId = trim($_POST['video']);
+        submitVideo($titleP,$slug,$youtubeId,$desc);
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +44,17 @@ confirm_logged_in();
         </div>
         <div id="cmsContainer" class="flexInDown">
             <div class="flexIn blue mainButtonsCon m-1 postSec" id="videoSec">
-                video
+                <form action="admin_createapost.php" method="post" class="flexInDown" enctype="multipart/form-data">
+                    <label>Title:</label>
+                    <input  type="text" name="title" value="">
+                    <label>Subtitle/Slugline:</label>
+                    <input  type="text" name="slug" value="">
+                    <label>Video:</label>
+                    <input  type="text" name="video" value="">
+                    <label>Description:</label>
+                    <input  type="text" name="desc" value="">
+                    <input class="btn btn-primary m-1" type="submit" name="submitVideo" value="Post Image">
+                </form>
             </div>
             <div class="flexIn blue mainButtonsCon m-1 postSec" id="imageSec">
                 <form action="admin_createapost.php" method="post" class="flexInDown" enctype="multipart/form-data">
@@ -56,6 +74,7 @@ confirm_logged_in();
             </div>
         </div>
     </div>
+    <img src="https://img.youtube.com/vi/lNSsmc_6GOQ/0.jpg" alt="">
     <script src="js/main.js"></script>
 </body>
 </html>
