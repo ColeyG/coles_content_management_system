@@ -5,4 +5,5 @@
 	require_once('sessions.php');
 	require_once('user.php');
 	require_once('mailer.php');
+	require_once('poster.php');
 ?>
