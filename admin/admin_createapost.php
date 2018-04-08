@@ -99,7 +99,7 @@ confirm_logged_in();
                     <option value="">Please Select a Genre</option>
                     <?php while($row= mysqli_fetch_array($genQuery)){
         	echo "<option value=\"{$row['genre_id']}\">{$row['genre_name']}</option>";}?>
-                    <input class="btn btn-primary m-1" type="submit" name="submitTrailer" value="Post Video">
+                    <input class="btn btn-primary m-1" type="submit" name="submitTrailer" value="Post Trailer">
                 </form>
             </div>
         </div>

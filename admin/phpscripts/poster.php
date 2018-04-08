@@ -52,8 +52,9 @@
     function submitTrailer($titleP,$slug,$youtubeId,$desc,$genre){
         include('connect.php');
 
-        $cover = $youtubeId;
-        $id = $youtubeId;
+        parse_str( parse_url( $youtubeId, PHP_URL_QUERY ), $my_array_of_vars );
+        $id = $my_array_of_vars['v'];
+        $cover=$id;
         $time=date('d-m-y').' at: '.date('h:i');
 
         $postString = "INSERT INTO tbl_content VALUES(NULL,'{$titleP}','{$slug}','{$cover}','{$desc}','Trailer','{$id}','{$_SESSION['users_name']}','{$time}')";
