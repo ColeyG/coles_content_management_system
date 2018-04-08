@@ -49,6 +49,7 @@ body{
     justify-content: space-around;
     align-items: center;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 .flexInDown{
     display:flex;
@@ -77,6 +78,24 @@ h2{
     border-radius:5px;
     padding:10px;
 }
+.filterButtonsCon{
+    padding:10px;
+}
+.filterButtonsCon a{
+    padding:10px;
+    margin:5px;
+}
 .postSec{
     display: none;
+}
+.hov:hover{
+    margin-top:0px!important;
+}
+.collapser{
+    transition:.2s;
+}
+.collapse{
+    padding:0px;
+    height:0px;
+    overflow: hidden;
 }
