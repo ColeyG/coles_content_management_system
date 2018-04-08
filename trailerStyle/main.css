@@ -1,0 +1,20 @@
+body{
+    background-image: url('wool.png');
+    /* height:100vh;
+    width:100%;*/
+    height:90vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.title{
+    color:white;
+    font-family: 'Anton', sans-serif;
+}
+p{
+    font-family: 'Lato', sans-serif;
+}
+.desc{
+    color:white;
+}

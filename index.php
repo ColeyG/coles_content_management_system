@@ -34,12 +34,12 @@
     <link href="admin/css/main.css" rel="stylesheet">
 </head>
 <body>
-<header id="mainHeader" class="container-fluid flexIn green">
-    <div><h6 class="centerText"><?php echo $title;?></h6></div>
-    <h2>Cole's CMS Landing</h2>
-    <div class="flexInDown">
-    </div>
-</header>
+    <header id="mainHeader" class="container-fluid flexIn green">
+        <div><h6 class="centerText"><?php echo $title;?></h6></div>
+        <h2>Cole's CMS Landing</h2>
+        <div class="flexInDown">
+        </div>
+    </header>
     <div class="flexIn blue filterButtonsCon collapser collapse">
     <a class='btn btn-dark' href='index.php'>All</a>
     <?php while($row= mysqli_fetch_array($genQ)){
@@ -48,11 +48,23 @@
     }
     ?>
     </div>
+    <div class='flexIn'>
     <?php
         while($row = mysqli_fetch_array($trailers)){
-            echo "<p>{$row['content_title']}</p>";
+            echo "
+            <a class='cardA' href='trailer.php?id={$row['content_id']}'>
+                <div class='card'>
+                    <img class='cardImage' src='https://img.youtube.com/vi/{$row['content_data']}/maxresdefault.jpg' alt='{$row['content_title']}'>
+                    <h2 class='cardTitle'>{$row['content_title']}</h2>  
+                    <div class='cardPinStripe'></div>
+                    <h2 class='cardTitle sub'>{$row['content_slug']}</h2>
+                    <p class='cardText'>{$row['content_desc']}</p>
+                </div>
+            </a>
+            ";
         }
     ?>
+    </div>
     <script src="js/main.js
     "></script>
 </body>

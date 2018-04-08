@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 01, 2018 at 01:42 AM
+-- Generation Time: Apr 08, 2018 at 07:10 PM
 -- Server version: 5.6.34-log
 -- PHP Version: 7.1.5
 
@@ -21,6 +21,83 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_admincms`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_content`
+--
+
+CREATE TABLE `tbl_content` (
+  `content_id` int(10) UNSIGNED NOT NULL,
+  `content_title` varchar(300) NOT NULL,
+  `content_slug` text NOT NULL,
+  `content_image` varchar(300) NOT NULL,
+  `content_desc` text NOT NULL,
+  `content_type` varchar(30) NOT NULL,
+  `content_data` text NOT NULL,
+  `content_by` varchar(100) NOT NULL,
+  `content_date` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_content`
+--
+
+INSERT INTO `tbl_content` (`content_id`, `content_title`, `content_slug`, `content_image`, `content_desc`, `content_type`, `content_data`, `content_by`, `content_date`) VALUES
+(2, 'Zootopia', 'Trailer 2', 'jWM0ct-OLsM', 'In a city of anthropomorphic animals, a rookie bunny cop and a cynical con artist fox must work together to uncover a conspiracy.', 'Trailer', 'jWM0ct-OLsM', 'Cole', '08-04-18 at: 07:07');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_genre`
+--
+
+CREATE TABLE `tbl_genre` (
+  `genre_id` tinyint(3) UNSIGNED NOT NULL,
+  `genre_name` varchar(125) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_genre`
+--
+
+INSERT INTO `tbl_genre` (`genre_id`, `genre_name`) VALUES
+(1, 'Action'),
+(2, 'Adventure'),
+(3, 'Comedy'),
+(4, 'Crime'),
+(5, 'Drama'),
+(6, 'Historical'),
+(7, 'Horror'),
+(8, 'Musical'),
+(9, 'Science Fiction'),
+(10, 'War'),
+(11, 'Western'),
+(12, 'Animation'),
+(13, 'Family'),
+(14, 'Fantasy'),
+(15, 'Romance'),
+(16, 'Sport');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_mov_genre`
+--
+
+CREATE TABLE `tbl_mov_genre` (
+  `mov_genre_id` mediumint(8) UNSIGNED NOT NULL,
+  `content_id` mediumint(9) NOT NULL,
+  `genre_id` mediumint(9) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_mov_genre`
+--
+
+INSERT INTO `tbl_mov_genre` (`mov_genre_id`, `content_id`, `genre_id`) VALUES
+(38, 2, 13);
 
 -- --------------------------------------------------------
 
@@ -63,6 +140,24 @@ INSERT INTO `tbl_users` (`users_id`, `users_name`, `users_pass`, `users_email`, 
 --
 
 --
+-- Indexes for table `tbl_content`
+--
+ALTER TABLE `tbl_content`
+  ADD PRIMARY KEY (`content_id`);
+
+--
+-- Indexes for table `tbl_genre`
+--
+ALTER TABLE `tbl_genre`
+  ADD PRIMARY KEY (`genre_id`);
+
+--
+-- Indexes for table `tbl_mov_genre`
+--
+ALTER TABLE `tbl_mov_genre`
+  ADD PRIMARY KEY (`mov_genre_id`);
+
+--
 -- Indexes for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
@@ -72,6 +167,21 @@ ALTER TABLE `tbl_users`
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `tbl_content`
+--
+ALTER TABLE `tbl_content`
+  MODIFY `content_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `tbl_genre`
+--
+ALTER TABLE `tbl_genre`
+  MODIFY `genre_id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+--
+-- AUTO_INCREMENT for table `tbl_mov_genre`
+--
+ALTER TABLE `tbl_mov_genre`
+  MODIFY `mov_genre_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 --
 -- AUTO_INCREMENT for table `tbl_users`
 --
