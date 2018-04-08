@@ -102,6 +102,11 @@ confirm_logged_in();
                     <input class="btn btn-primary m-1" type="submit" name="submitTrailer" value="Post Trailer">
                 </form>
             </div>
+            <div id="cmsContainer" class="flexInDown">
+            <div class="flexIn blue mainButtonsCon m-1">
+                <p>Multiple content types can be added for flexibility to the content table though only trailers are printed to index.</p>
+            </div>
+            </div>
         </div>
     </div>
     <script src="js/main.js"></script>
