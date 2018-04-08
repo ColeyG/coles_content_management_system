@@ -104,7 +104,7 @@ confirm_logged_in();
             </div>
             <div id="cmsContainer" class="flexInDown">
             <div class="flexIn blue mainButtonsCon m-1">
-                <p>Multiple content types can be added for flexibility to the content table though only trailers are printed to index.</p>
+                <p>Multiple content types can be added for flexibility to the content table though only trailers are printed to index. On the main page, if you are signed in, you will see a delete button.</p>
             </div>
             </div>
         </div>

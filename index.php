@@ -51,7 +51,7 @@
     <div class='flexIn'>
     <?php
         while($row = mysqli_fetch_array($trailers)){
-            echo "
+            echo "<div>
             <a class='cardA' href='trailer.php?id={$row['content_id']}'>
                 <div class='card'>
                     <img class='cardImage' src='https://img.youtube.com/vi/{$row['content_data']}/maxresdefault.jpg' alt='{$row['content_title']}'>
@@ -62,6 +62,10 @@
                 </div>
             </a>
             ";
+            if(isset($_SESSION['users_id'])){
+                echo "<a href='admin/delete.php?id={$row['content_id']}'>Delete</a>";
+            }
+            echo "</div>";
         }
     ?>
     </div>
