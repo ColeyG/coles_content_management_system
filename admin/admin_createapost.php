@@ -6,6 +6,8 @@ confirm_logged_in();
 
     $title = "Create a Post";
 
+    $genQuery = getAll("tbl_genre");
+
     if(isset($_POST['submitImage'])){
         $titleP = trim($_POST['title']);
         $slug = trim($_POST['slug']);
@@ -20,6 +22,15 @@ confirm_logged_in();
         $desc = trim($_POST['desc']);
         $youtubeId = trim($_POST['video']);
         submitVideo($titleP,$slug,$youtubeId,$desc);
+    }
+
+    if(isset($_POST['submitTrailer'])){
+        $titleP = trim($_POST['title']);
+        $slug = trim($_POST['slug']);
+        $desc = trim($_POST['desc']);
+        $youtubeId = trim($_POST['video']);
+        $genre = trim($_POST['genre']);
+        submitTrailer($titleP,$slug,$youtubeId,$desc,$genre);
     }
 
 ?>
@@ -39,7 +50,8 @@ confirm_logged_in();
             <div class="flexIn blue mainButtonsCon">
                 <a class="btn btn-primary m-2 postButtons" id="video" class="but" >Videos</a>
                 <a class="btn btn-primary m-2 postButtons" id="image" class="but" >Images</a>
-                <a class="btn btn-primary m-2 postButtons" id="article" class="but" >Articles</a>
+                <a class="btn btn-primary m-2 postButtons disabled" id="article" class="but" >Articles</a>
+                <a class="btn btn-primary m-2 postButtons" id="trailer" class="but" >Trailer Depot</a>
             </div>
         </div>
         <div id="cmsContainer" class="flexInDown">
@@ -71,6 +83,24 @@ confirm_logged_in();
             </div>
             <div class="flexIn blue mainButtonsCon m-1 postSec" id="articleSec">
                 article
+            </div>
+            <div class="flexIn blue mainButtonsCon m-1 postSec" id="trailerSec">
+                <form action="admin_createapost.php" method="post" class="flexInDown" enctype="multipart/form-data">
+                    <label>Title:</label>
+                    <input  type="text" name="title" value="">
+                    <label>Subtitle/Slugline:</label>
+                    <input  type="text" name="slug" value="">
+                    <label>Youtube Link:</label>
+                    <input  type="text" name="video" value="">
+                    <label>Description:</label>
+                    <input  type="text" name="desc" value="">
+                    <label>Genre:</label>
+                    <select name="genre">
+                    <option value="">Please Select a Genre</option>
+                    <?php while($row= mysqli_fetch_array($genQuery)){
+        	echo "<option value=\"{$row['genre_id']}\">{$row['genre_name']}</option>";}?>
+                    <input class="btn btn-primary m-1" type="submit" name="submitTrailer" value="Post Video">
+                </form>
             </div>
         </div>
     </div>

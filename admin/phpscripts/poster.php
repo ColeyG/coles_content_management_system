@@ -49,5 +49,31 @@
         mysqli_close($link);
     }
 
+    function submitTrailer($titleP,$slug,$youtubeId,$desc,$genre){
+        include('connect.php');
+
+        $cover = $youtubeId;
+        $id = $youtubeId;
+        $time=date('d-m-y').' at: '.date('h:i');
+
+        $postString = "INSERT INTO tbl_content VALUES(NULL,'{$titleP}','{$slug}','{$cover}','{$desc}','Trailer','{$id}','{$_SESSION['users_name']}','{$time}')";
+
+        $postQuery = mysqli_query($link,$postString);
+        if($postQuery){
+            $qstring = "SELECT * FROM tbl_content ORDER BY content_id DESC LIMIT 1";
+            $lastContent = mysqli_query($link,$qstring);
+            $row = mysqli_fetch_array($lastContent);
+            $lastID = $row['content_id'];
+            //echo $lastID;
+            $genreString = "INSERT INTO tbl_mov_genre VALUES(NULL,'{$lastID}',{$genre})";
+            $genresult = mysqli_query($link,$genreString);
+            //echo $genreString;
+            redirect_to('admin_createapost.php');
+        }
+        //$genreString = "INSERT INTO tbl_mov_genre VALUES(NULL,'{$lastID}',{$genre})";
+
+        mysqli_close($link);
+    }
+
 
 ?>
