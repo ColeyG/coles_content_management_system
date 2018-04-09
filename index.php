@@ -54,7 +54,7 @@
             echo "<div>
             <a class='cardA' href='trailer.php?id={$row['content_id']}'>
                 <div class='card'>
-                    <img class='cardImage' src='https://img.youtube.com/vi/{$row['content_data']}/maxresdefault.jpg' alt='{$row['content_title']}'>
+                    <img class='cardImage' src='https://img.youtube.com/vi/{$row['content_data']}/0.jpg' alt='{$row['content_title']}'>
                     <h2 class='cardTitle'>{$row['content_title']}</h2>  
                     <div class='cardPinStripe'></div>
                     <h2 class='cardTitle sub'>{$row['content_slug']}</h2>

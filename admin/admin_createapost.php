@@ -27,7 +27,7 @@ confirm_logged_in();
     if(isset($_POST['submitTrailer'])){
         $titleP = trim($_POST['title']);
         $slug = trim($_POST['slug']);
-        $desc = trim($_POST['desc']);
+        $desc = htmlspecialchars(trim($_POST['desc']));
         $youtubeId = trim($_POST['video']);
         $genre = trim($_POST['genre']);
         submitTrailer($titleP,$slug,$youtubeId,$desc,$genre);
